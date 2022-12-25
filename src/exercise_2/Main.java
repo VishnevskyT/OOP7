@@ -36,8 +36,10 @@ public class Main {
                 try {
                     workers[i].year = Integer.parseInt(scanner.next());
                     scanner.nextLine();
+                    if (workers[i].year < 999 || workers[i].year > 9999) {
+                        throw new Exception();
+                    }
                 } catch (Exception e) {
-                    System.out.println(e.getMessage());
                     System.out.print("Введіть рік у форматі YYYY:");
                 }
             } while (workers[i].year <999 || workers[i].year > 9999);
@@ -45,7 +47,6 @@ public class Main {
 
          Arrays.sort(workers, Comparator.comparing(Worker::getName));
         System.out.println("Дані працівника:\n" + Arrays.toString(workers));
-
 
         System.out.print("Введіть стаж (кількість років), за яким вивести працівників: ");
 
