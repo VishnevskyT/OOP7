@@ -25,40 +25,11 @@ public class Main {
         Calculator calculator = new Calculator();
 
         switch (operation) {
-            case '+' :
-                try {
-                    calculator.add(a, b);
-                } catch (ArithmeticException e) {
-                    System.out.println(e.getMessage());
-                }
-                break;
-
-            case '-' :
-                try {
-                    calculator.sub(a, b);
-                } catch (ArithmeticException e) {
-                    System.out.println(e.getMessage());
-                }
-                break;
-
-            case '*' :
-                try {
-                    calculator.mul(a, b);
-                } catch (ArithmeticException e) {
-                    System.out.println(e.getMessage());
-                }
-                break;
-
-            case '/' :
-                try {
-                    calculator.div(a, b);
-                } catch (ArithmeticException e) {
-                    System.out.println(e.getMessage());
-                }
-                break;
-            default:
-                System.out.println("Щось пішло не так. Введіть дію над операндами серед +, -, *, /");
-                break;
+            case '+' -> calculator.add(a, b);
+            case '-' -> calculator.sub(a, b);
+            case '*' -> calculator.mul(a, b);
+            case '/' -> calculator.div(a, b);
+            default -> System.out.println("Щось пішло не так. Введіть дію над операндами серед +, -, *, /");
         }
 
     }

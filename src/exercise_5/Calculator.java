@@ -11,41 +11,28 @@ package exercise_5;
 public class Calculator {
 
     public void add(double a, double b) {
-
-        try {
             double c = a + b;
             System.out.println("a + b = " + c);
-
-        } catch (ArithmeticException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     public void sub(double a, double b) {
-        try {
             double c = a - b;
             System.out.println("a - b = " + c);
-        } catch (ArithmeticException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     public void mul(double a, double b) {
-        try {
             double c = a * b;
             System.out.println("a x b = " + c);
-
-        } catch (ArithmeticException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     public void div(double a, double b) {
         try {
+            if (b == 0) {
+                throw new Exception();
+            }
             double c = a / b;
             System.out.println("a / b = " + c);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             System.out.println("На нуль ділити неможна!");
 
         }
