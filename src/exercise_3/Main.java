@@ -31,56 +31,26 @@ public class Main {
             System.out.print("Введіть вартість товару у гривнях: _");
             price.price = scanner.nextDouble();
         }
-
         Arrays.sort(item, Comparator.comparing(Price::getName));
-
         for (Price temp : item) {
             System.out.println(temp.name + " "  + temp.shop + " " + temp.price);
         }
-
         System.out.print("Пошук товарів за назвою магазинів (введіть назву магазину): _");
-
         String shopFinder = scanner.next();
-
-        for (Price temp : item) {
-            try {
-                if (temp.shop.equals(shopFinder)) {
-                    System.out.println("У магазині " + shopFinder + " наявні наступні товари:\n" + temp.name + " " + temp.price);
+        boolean check = false;
+           try {
+                for (Price temp : item) {
+                    if (temp.shop.equals(shopFinder)) {
+                        System.out.println("У магазині " + shopFinder + " наявні наступні товари:\n" + temp.name + " " + temp.price);
+                        check = true;
+                    }
                 }
-                else {
-                    throw new NoMatchException("");
-                }
-            } catch (NoMatchException e) {
+               if (!check) {
+                   throw new NoMatchException();
+               }
+           } catch (NoMatchException e) {
                 System.out.println("Такого магазину не існує");
-            }
-        }
-
-//        boolean success = false;
-//        while (!success) {
-//            try {
-//                String shopFinder = scanner.next();
-//                for (Price temp : item) {
-//                    success = shopFinder.equals(temp.shop);
-//                    if (success)
-//                        System.out.println(temp);
-//                }
-//                throw new NoMatchException("!!!!");
-//            }
-//            catch (Exception e) {
-//                scanner.next ();
-//            }
-//        }
-
-//        try {
-//            for (Price temp : item) {
-//                if (temp.shop.equals(shopFinder))
-//                    System.out.println(temp);
-//            }
-////            throw new NoMatchException("");
-//        } catch (Exception e) {
-//            System.out.println("Такого магазину не існує!" + e.getMessage());
-//        }
-
+           }
 
     }
 }

@@ -1,6 +1,5 @@
 package exercise_3;
 
-import java.util.Objects;
 
 /**
  * Завдання 3
@@ -23,16 +22,9 @@ public class Price {
     public Price() {
     }
 
-    public Price(String name, String shop, double price) {
-        this.name = name;
-        this.shop = shop;
-        this.price = price;
-    }
-
     public String getName() {
         return name;
     }
-
 
     @Override
     public String toString() {
